@@ -8,7 +8,7 @@ export class GetPacientes {
         this.repository = repository;
     }
 
-    async execute(): Promise<Paciente[]> {
-        return await this.repository.ConsultPacientes();
+    async execute(): Promise<Paciente> {
+        return await this.repository.ConsultPaciente();
     }
 }

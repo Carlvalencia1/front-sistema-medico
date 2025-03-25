@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetPacientes } from "../application/get_pacientes.usecase"; // Asegúrate de que el nombre es correcto
+import { GetPacientes } from "../application/get_paciente.usecase"; // Asegúrate de que el nombre es correcto
 import IPacientes from "../domain/pacientes.repository";
 import APIRepositoryPacientes from "./apiPaciente.repository";
 import Paciente from "../domain/paciente.entity";
