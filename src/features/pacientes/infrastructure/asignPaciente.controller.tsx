@@ -1,29 +1,24 @@
-/*import { useEffect } from "react";
-import { Update } from "../application/asign_pacientes.usecase";
+import { useEffect, useState } from "react";
+import { UpdatePacientes } from "../application/asign_pacientes.usecase";
 import Ipacientes from "../domain/pacientes.repository";
 import Paciente from "../domain/paciente.entity";
-import APIRepositoryPacientes from "./apiPaciente.repository"
+import APIRepositoryPacientes from "./apiPaciente.repository";
 
 export default function useGetPaciente(id_usuario: number, body: Paciente) {
     const [response, setResponse] = useState<Paciente>();
-    const [loanding, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(( ) => {
+    useEffect(() => {
         const repository: Ipacientes = new APIRepositoryPacientes();
-        const getPaciente = new Update(repository);
+        const getPacienteUseCase = new UpdatePacientes(repository);
 
-        getPacienteUseCse
-        .execuete(id_usuario, body)
-        .then((setResponse)
-        .catch((err)  => setError(err.message))
-        .finally(() => setLoading(false));
-        }, []);
+        getPacienteUseCase
+            .execute(id_usuario, body)
+            .then(setResponse)
+            .catch((err) => setError(err.message))
+            .finally(() => setLoading(false));
+    }, []);
 
-        return { response, loanding, error };
-    }
-
-    */
-
-
-    
+    return { response, loading, error };
+}
